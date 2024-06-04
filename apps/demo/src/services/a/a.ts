@@ -1,8 +1,10 @@
-import { createDecorator } from 'bedrock';
+import { Disposable } from 'bedrock';
+import { IAService } from './a.interface';
 
-export const IAService = createDecorator<IAService>('aServices');
-export interface IAService {
-  readonly _serviceBrand: undefined;
+export class AService extends Disposable implements IAService {
+  declare readonly _serviceBrand: undefined;
 
-  sayHello(): void;
+  sayHello(): void {
+    console.log('Hello');
+  }
 }

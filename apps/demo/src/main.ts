@@ -5,10 +5,8 @@ import {
   SyncDescriptor,
 } from 'bedrock';
 
-import { IAService } from './services/a/a';
-import { AService } from './services/a/aService';
-import { IBService } from './services/b/b';
-import { BService } from './services/b/bService';
+import { IAService, AService } from './services/a';
+import { IBService, BService } from './services/b';
 
 export class Main {
   main(): void {
@@ -22,7 +20,7 @@ export class Main {
   private async startup(): Promise<void> {
     const [instantiationService, aService] = this.createServices();
 
-    debugger;
+    // TODO
   }
 
   private createServices(): [IInstantiationService, IAService] {

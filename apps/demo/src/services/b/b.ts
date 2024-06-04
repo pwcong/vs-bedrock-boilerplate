@@ -1,8 +1,16 @@
-import { createDecorator } from 'bedrock';
+import { Disposable } from 'bedrock';
+import { IAService } from '../a/a.interface';
+import { IBService } from './b.interface';
 
-export const IBService = createDecorator<IBService>('bServices');
-export interface IBService {
-  readonly _serviceBrand: undefined;
+export class BService extends Disposable implements IBService {
+  declare readonly _serviceBrand: undefined;
 
-  sayHelloWorld(): void;
+  constructor(@IAService private _aService: IAService) {
+    super();
+  }
+
+  sayHelloWorld(): void {
+    this._aService.sayHello();
+    console.log('World');
+  }
 }
