@@ -1,7 +1,8 @@
-import { Main } from './main';
+import { Entry } from './entry';
 
 function startup() {
-  new Main().main();
+  // eslint-disable-next-line no-new
+  new Entry();
 }
 
 startup();
